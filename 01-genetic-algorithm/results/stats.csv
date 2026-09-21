@@ -1,0 +1,7 @@
+problem,dim,budget,best,worst,mean,median,std,runs,successes,mean_evals_to_optimum,success_rate,config
+One-max,10,1000,10.0,10.0,10.0,10.0,0.0,10,10,79.8,10/10,"N=5, elite=10%, rank, uniform (pc=0.8), pm=1/D"
+One-max,30,3000,30.0,30.0,30.0,30.0,0.0,10,10,297.6,10/10,"N=10, elite=20%, rank, uniform (pc=1), pm=1/D"
+One-max,100,10000,100.0,100.0,100.0,100.0,0.0,10,10,1302.4,10/10,"N=10, elite=20%, rank, uniform (pc=1), pm=0.01"
+Leading ones,10,1000,10.0,10.0,10.0,10.0,0.0,10,10,100.3,10/10,"N=5, elite=10%, roulette, uniform (pc=1), pm=1/D"
+Leading ones,30,3000,30.0,30.0,30.0,30.0,0.0,10,10,1236.6,10/10,"N=5, elite=10%, rank, uniform (pc=1), pm=1/D"
+Leading ones,100,10000,100.0,80.0,91.5,92.0,8.475454756727412,10,4,8602.5,4/10,"N=5, elite=10%, roulette, uniform (pc=1), pm=0.01"
