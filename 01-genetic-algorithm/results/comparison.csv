@@ -1,0 +1,7 @@
+problem,dim,strict_mean,strict_success,strict_evals,extended_mean,extended_success,extended_evals
+One-max,10,10.0,10/10,124.4,10.0,10/10,79.8
+One-max,30,30.0,10/10,448.1,30.0,10/10,297.6
+One-max,100,100.0,10/10,1572.6,100.0,10/10,1302.4
+Leading ones,10,10.0,10/10,294.7,10.0,10/10,100.3
+Leading ones,30,30.0,10/10,2015.1,30.0,10/10,1236.6
+Leading ones,100,90.5,2/10,9958.0,91.5,4/10,8602.5

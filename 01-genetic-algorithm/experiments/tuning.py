@@ -13,13 +13,27 @@ from problems import make_problem
 from .runner import Instance, instance_id, run_many
 from .statistics import normalized_auc, summarize
 
-PARAM_GRID: dict[str, list] = {
-    "pop_size": [5, 10, 20, 50, 100],
-    "elite_ratio": [0.1, 0.2],
-    "selection": ["roulette", "rank"],
-    "crossover": ["one_point", "two_point", "uniform"],
-    "crossover_rate": [0.8, 1.0],
-    "mutation_rate": [0.005, 0.01, None],  # None = 1/D
+Grid = dict[str, list]
+
+GRIDS: dict[str, Grid] = {
+    # Only what the assignment prescribes: one-point crossover and pm of about 0.5-1 %.
+    "strict": {
+        "pop_size": [5, 10, 20, 50, 100],
+        "elite_ratio": [0.1, 0.2],
+        "selection": ["roulette", "rank"],
+        "crossover": ["one_point"],
+        "crossover_rate": [0.6, 0.8, 1.0],
+        "mutation_rate": [0.005, 0.0075, 0.01],
+    },
+    # Additional experiment: other crossover types and pm = 1/D as well.
+    "extended": {
+        "pop_size": [5, 10, 20, 50, 100],
+        "elite_ratio": [0.1, 0.2],
+        "selection": ["roulette", "rank"],
+        "crossover": ["one_point", "two_point", "uniform"],
+        "crossover_rate": [0.8, 1.0],
+        "mutation_rate": [0.005, 0.01, None],  # None = 1/D
+    },
 }
 
 
@@ -51,7 +65,7 @@ class TuningResult:
         }
 
 
-def grid_configs(grid: dict[str, list] = PARAM_GRID) -> list[GAConfig]:
+def grid_configs(grid: Grid) -> list[GAConfig]:
     """The full (nominal) grid: every combination of parameter values."""
     return [GAConfig(**dict(zip(grid, values))) for values in product(*grid.values())]
 
@@ -69,7 +83,7 @@ def effective_key(config: GAConfig, dim: int) -> tuple:
     )
 
 
-def unique_configs(dim: int, grid: dict[str, list] = PARAM_GRID) -> list[GAConfig]:
+def unique_configs(dim: int, grid: Grid) -> list[GAConfig]:
     """Grid configurations for dimension `dim`, keeping only one of each group of equivalent ones."""
     unique: dict[tuple, GAConfig] = {}
     for config in grid_configs(grid):
@@ -99,10 +113,10 @@ def _evaluate_task(task: tuple) -> TuningResult:
 
 def tune(
     instances: Sequence[Instance],
+    grid: Grid,
     runs: int,
     seed: int,
     jobs: int | None = None,
-    grid: dict[str, list] = PARAM_GRID,
 ) -> dict[Instance, list[TuningResult]]:
     """Evaluate every distinct grid configuration on every instance; results are sorted best first."""
     tasks = [(name, dim, config, runs, seed) for name, dim in instances for config in unique_configs(dim, grid)]
@@ -120,9 +134,7 @@ def tune(
     return ranking
 
 
-def parameter_effects(
-    ranking: dict[Instance, list[TuningResult]], grid: dict[str, list] = PARAM_GRID
-) -> list[dict]:
+def parameter_effects(ranking: dict[Instance, list[TuningResult]], grid: Grid) -> list[dict]:
     """Marginal effect of every parameter value, separately for each instance: the AUC
     averaged over all configurations of the full grid that use this value.
 
@@ -137,6 +149,8 @@ def parameter_effects(
 
     rows = []
     for param, values in grid.items():
+        if len(values) < 2:
+            continue  # a fixed parameter has no effect to show
         for value in values:
             uses_value = [getattr(config, param) == value for config in configs]
             row = {"parameter": param, "value": "1/D" if value is None else value}

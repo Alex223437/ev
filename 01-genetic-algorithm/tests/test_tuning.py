@@ -1,5 +1,5 @@
 from experiments.tuning import (
-    PARAM_GRID,
+    GRIDS,
     TuningResult,
     effective_key,
     evaluate_config,
@@ -19,22 +19,34 @@ SMALL_GRID = {
 }
 
 
+EXTENDED = GRIDS["extended"]
+
+
+def test_strict_grid_stays_within_the_assignment():
+    for config in grid_configs(GRIDS["strict"]):
+        assert config.crossover == "one_point"
+        assert 0.005 <= config.mutation_rate <= 0.01
+        assert 0.1 <= config.elite_ratio <= 0.2
+
+
 def test_unique_configs_have_no_equivalents():
-    for dim in (10, 30, 100):
-        keys = [effective_key(config, dim) for config in unique_configs(dim)]
-        assert len(keys) == len(set(keys))
+    for grid in GRIDS.values():
+        for dim in (10, 30, 100):
+            keys = [effective_key(config, dim) for config in unique_configs(dim, grid)]
+            assert len(keys) == len(set(keys))
 
 
 def test_mutation_rate_equal_to_one_over_d_is_evaluated_once():
     # pm = 0.01 and pm = 1/D are the same thing for D = 100.
-    assert len(unique_configs(100)) < len(unique_configs(30))
-    assert {config.mutation_rate_for(100) for config in unique_configs(100)} == {0.005, 0.01}
+    assert len(unique_configs(100, EXTENDED)) < len(unique_configs(30, EXTENDED))
+    assert {config.mutation_rate_for(100) for config in unique_configs(100, EXTENDED)} == {0.005, 0.01}
 
 
 def test_unique_configs_cover_every_parameter_value():
-    configs = unique_configs(30)
-    for name, values in PARAM_GRID.items():
-        assert {getattr(config, name) for config in configs} == set(values)
+    for grid in GRIDS.values():
+        configs = unique_configs(30, grid)
+        for name, values in grid.items():
+            assert {getattr(config, name) for config in configs} == set(values)
 
 
 def test_evaluate_config_summarizes_runs():
@@ -57,3 +69,5 @@ def test_parameter_effects_count_equivalent_configurations_for_every_value():
     rows = parameter_effects({("onemax", 10): results}, SMALL_GRID)
     elite_rows = {row["value"]: row["onemax_10D"] for row in rows if row["parameter"] == "elite_ratio"}
     assert elite_rows == {0.1: 0.7, 0.2: 0.7}
+    # Parameters with a single value in the grid have no effect to show.
+    assert {row["parameter"] for row in rows} == {"pop_size", "elite_ratio"}

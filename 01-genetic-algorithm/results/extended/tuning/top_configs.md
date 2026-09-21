@@ -1,4 +1,4 @@
-### One-max, D = 10
+### One-max 10D
 
 | N | Elitismus | Selekce | Křížení | pc | pm | Průměr | Sm. odch. | Optimum | AUC |
 |---|---|---|---|---|---|---|---|---|---|
@@ -8,7 +8,7 @@
 | 5 | 0.1 | rank | one_point | 0.8 | 1/D | 10 | 0 | 30/30 | 0.988 |
 | 10 | 0.2 | rank | uniform | 0.8 | 1/D | 10 | 0 | 30/30 | 0.988 |
 
-### One-max, D = 30
+### One-max 30D
 
 | N | Elitismus | Selekce | Křížení | pc | pm | Průměr | Sm. odch. | Optimum | AUC |
 |---|---|---|---|---|---|---|---|---|---|
@@ -18,7 +18,7 @@
 | 5 | 0.1 | rank | uniform | 0.8 | 1/D | 30 | 0 | 30/30 | 0.987 |
 | 5 | 0.1 | rank | two_point | 0.8 | 1/D | 30 | 0 | 30/30 | 0.987 |
 
-### One-max, D = 100
+### One-max 100D
 
 | N | Elitismus | Selekce | Křížení | pc | pm | Průměr | Sm. odch. | Optimum | AUC |
 |---|---|---|---|---|---|---|---|---|---|
@@ -28,7 +28,7 @@
 | 10 | 0.2 | rank | uniform | 0.8 | 0.01 | 100 | 0 | 30/30 | 0.986 |
 | 5 | 0.1 | rank | two_point | 1 | 0.01 | 100 | 0 | 30/30 | 0.986 |
 
-### Leading ones, D = 10
+### Leading ones 10D
 
 | N | Elitismus | Selekce | Křížení | pc | pm | Průměr | Sm. odch. | Optimum | AUC |
 |---|---|---|---|---|---|---|---|---|---|
@@ -38,7 +38,7 @@
 | 10 | 0.1 | roulette | uniform | 0.8 | 1/D | 10 | 0 | 30/30 | 0.959 |
 | 5 | 0.1 | rank | uniform | 0.8 | 1/D | 10 | 0 | 30/30 | 0.958 |
 
-### Leading ones, D = 30
+### Leading ones 30D
 
 | N | Elitismus | Selekce | Křížení | pc | pm | Průměr | Sm. odch. | Optimum | AUC |
 |---|---|---|---|---|---|---|---|---|---|
@@ -48,7 +48,7 @@
 | 5 | 0.1 | rank | uniform | 0.8 | 1/D | 30 | 0 | 30/30 | 0.878 |
 | 10 | 0.2 | rank | uniform | 1 | 1/D | 30 | 0 | 30/30 | 0.875 |
 
-### Leading ones, D = 100
+### Leading ones 100D
 
 | N | Elitismus | Selekce | Křížení | pc | pm | Průměr | Sm. odch. | Optimum | AUC |
 |---|---|---|---|---|---|---|---|---|---|
