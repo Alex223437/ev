@@ -1,0 +1,197 @@
+{
+  "sphere_ieee754": {
+    "problem": "sphere",
+    "variant": "ieee754",
+    "config": {
+      "pop_size": 20,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.003125,
+      "sigma_ratio": null
+    },
+    "mean_final": 3.251114644155838e-83
+  },
+  "sphere_fixed_point": {
+    "problem": "sphere",
+    "variant": "fixed_point",
+    "config": {
+      "pop_size": 20,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.003125,
+      "sigma_ratio": null
+    },
+    "mean_final": 5.732618083934919e-13
+  },
+  "sphere_bcd": {
+    "problem": "sphere",
+    "variant": "bcd",
+    "config": {
+      "pop_size": 100,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.01,
+      "sigma_ratio": null
+    },
+    "mean_final": 0.003144365572133333
+  },
+  "sphere_real_gaussian": {
+    "problem": "sphere",
+    "variant": "real_gaussian",
+    "config": {
+      "pop_size": 20,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.1,
+      "sigma_ratio": 0.01
+    },
+    "mean_final": 1.0080870777550806e-05
+  },
+  "sphere_real_uniform": {
+    "problem": "sphere",
+    "variant": "real_uniform",
+    "config": {
+      "pop_size": 20,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.1,
+      "sigma_ratio": null
+    },
+    "mean_final": 0.009522957773628408
+  },
+  "rosenbrock_ieee754": {
+    "problem": "rosenbrock",
+    "variant": "ieee754",
+    "config": {
+      "pop_size": 100,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.003125,
+      "sigma_ratio": null
+    },
+    "mean_final": 8.218478705092659
+  },
+  "rosenbrock_fixed_point": {
+    "problem": "rosenbrock",
+    "variant": "fixed_point",
+    "config": {
+      "pop_size": 100,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.01,
+      "sigma_ratio": null
+    },
+    "mean_final": 6.303321664956224
+  },
+  "rosenbrock_bcd": {
+    "problem": "rosenbrock",
+    "variant": "bcd",
+    "config": {
+      "pop_size": 100,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.01,
+      "sigma_ratio": null
+    },
+    "mean_final": 7.812305363825339
+  },
+  "rosenbrock_real_gaussian": {
+    "problem": "rosenbrock",
+    "variant": "real_gaussian",
+    "config": {
+      "pop_size": 20,
+      "elite_ratio": 0.1,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.1,
+      "sigma_ratio": 0.05
+    },
+    "mean_final": 5.740697700014422
+  },
+  "rosenbrock_real_uniform": {
+    "problem": "rosenbrock",
+    "variant": "real_uniform",
+    "config": {
+      "pop_size": 100,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.1,
+      "sigma_ratio": null
+    },
+    "mean_final": 7.3575555430777575
+  },
+  "schwefel_ieee754": {
+    "problem": "schwefel",
+    "variant": "ieee754",
+    "config": {
+      "pop_size": 100,
+      "elite_ratio": 0.1,
+      "selection": "roulette",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.003125,
+      "sigma_ratio": null
+    },
+    "mean_final": 285.6184547197549
+  },
+  "schwefel_fixed_point": {
+    "problem": "schwefel",
+    "variant": "fixed_point",
+    "config": {
+      "pop_size": 100,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.03,
+      "sigma_ratio": null
+    },
+    "mean_final": 33.00018750137204
+  },
+  "schwefel_bcd": {
+    "problem": "schwefel",
+    "variant": "bcd",
+    "config": {
+      "pop_size": 100,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.01,
+      "sigma_ratio": null
+    },
+    "mean_final": 225.199850958584
+  },
+  "schwefel_real_gaussian": {
+    "problem": "schwefel",
+    "variant": "real_gaussian",
+    "config": {
+      "pop_size": 100,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 1.0,
+      "mutation_rate": 0.1,
+      "sigma_ratio": 0.3
+    },
+    "mean_final": 48.87243927332192
+  },
+  "schwefel_real_uniform": {
+    "problem": "schwefel",
+    "variant": "real_uniform",
+    "config": {
+      "pop_size": 20,
+      "elite_ratio": 0.2,
+      "selection": "rank",
+      "crossover_rate": 0.8,
+      "mutation_rate": 0.1,
+      "sigma_ratio": null
+    },
+    "mean_final": 10.062239433102665
+  }
+}

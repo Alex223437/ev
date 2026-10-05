@@ -5,6 +5,7 @@ Repozitář s řešeními úloh z předmětu EV. Každá úloha je v samostatné
 | # | Úloha | Složka |
 |---|-------|--------|
 | 1 | Genetický algoritm (One-max, Leading ones) | [01-genetic-algorithm](01-genetic-algorithm/) |
+| 2 | Genetický algoritmus s reálnými parametry (Sphere, Rosenbrock, Schwefel) | [02-real-parameter-ga](02-real-parameter-ga/) |
 
 ## Prostředí
 
