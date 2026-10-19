@@ -50,7 +50,15 @@ Balíček `ga` pracuje s libovolnou účelovou funkcí, která má atribut `dim`
 
 ## Spuštění
 
-Z kořene repozitáře (virtuální prostředí je popsáno v [hlavním README](../README.md)):
+Potřebné balíčky: `numpy` a `matplotlib` (pro testy navíc `pytest`). Příprava prostředí z kořene repozitáře (viz [hlavní README](../README.md)):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Spuštění z kořene repozitáře:
 
 ```bash
 python 01-genetic-algorithm/main.py all                    # vše: obě ladění, finální běhy, srovnání (~5 min na 8 jádrech)

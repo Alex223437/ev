@@ -53,7 +53,15 @@ Algoritmus v `ga/` zná pouze rozhraní `Representation`: umí vytvořit náhodn
 
 ## Spuštění
 
-Z kořene repozitáře (virtuální prostředí je popsáno v [hlavním README](../README.md)):
+Potřebné balíčky: `numpy` a `matplotlib` (pro testy navíc `pytest`). Příprava prostředí z kořene repozitáře (viz [hlavní README](../README.md)):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Spuštění z kořene repozitáře:
 
 ```bash
 python 02-real-parameter-ga/main.py all     # ladění parametrů + finální experimenty

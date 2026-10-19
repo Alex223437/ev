@@ -18,3 +18,12 @@ pip install -r requirements.txt
 ```
 
 Postup spuštění konkrétní úlohy je popsán v README její složky.
+
+## Testy
+
+```bash
+./run_tests.sh
+```
+
+Každá úloha je samostatná a používá stejné názvy modulů (`ga`, `problems`, `experiments`),
+proto skript spouští testy každé úlohy v samostatném procesu.
